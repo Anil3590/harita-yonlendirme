@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Haritada Açılıyor…</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #ffffff;
+      color: #111111;
+    }
+    .box {
+      width: min(92vw, 460px);
+      text-align: center;
+      padding: 32px 24px;
+    }
+    h1 { font-size: 24px; margin: 0 0 10px; }
+    p { line-height: 1.5; color: #555; margin: 0 0 22px; }
+    a {
+      display: block;
+      margin: 12px 0;
+      padding: 14px 18px;
+      border: 1px solid #dddddd;
+      border-radius: 12px;
+      color: #111111;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <h1>Haritada açılıyor…</h1>
+    <p>Otomatik yönlendirme olmazsa aşağıdan harita uygulamasını seçebilirsin.</p>
+    <a href="https://maps.apple/p/pK0cKkKC_kkZ7T">Apple Maps'te Aç</a>
+    <a href="https://www.google.com/maps?q=38.27756881713867,26.828279495239258&z=17&hl=tr">Google Maps'te Aç</a>
+  </main>
+
+  <script>
+    (function () {
+      const apple = "https://maps.apple/p/pK0cKkKC_kkZ7T";
+      const google = "https://www.google.com/maps?q=38.27756881713867,26.828279495239258&z=17&hl=tr";
+      const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+      const platform = navigator.platform || "";
+      const isIOS = /iPad|iPhone|iPod/i.test(ua) || (platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      const isMac = /Macintosh|Mac OS X/i.test(ua);
+      const isAndroid = /Android/i.test(ua);
+
+      let target = google;
+      if (isIOS || isMac) target = apple;
+      else if (isAndroid) target = google;
+
+      window.setTimeout(function () {
+        window.location.replace(target);
+      }, 350);
+    })();
+  </script>
+</body>
+</html>
