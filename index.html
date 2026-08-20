@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Haritada Açılıyor…</title>
+  <title>Haritada Aç</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -13,54 +13,39 @@
       display: grid;
       place-items: center;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background: #ffffff;
-      color: #111111;
+      background: #f5f5f5;
+      color: #111;
+      padding: 24px;
     }
-    .box {
-      width: min(92vw, 460px);
+    .card {
+      width: min(92vw, 420px);
+      background: #fff;
+      border-radius: 22px;
+      padding: 28px 22px;
       text-align: center;
-      padding: 32px 24px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.12);
     }
-    h1 { font-size: 24px; margin: 0 0 10px; }
-    p { line-height: 1.5; color: #555; margin: 0 0 22px; }
+    h1 { margin: 0 0 10px; font-size: 27px; }
+    p { margin: 0 0 22px; color: #555; line-height: 1.5; }
     a {
       display: block;
       margin: 12px 0;
-      padding: 14px 18px;
-      border: 1px solid #dddddd;
-      border-radius: 12px;
-      color: #111111;
+      padding: 15px 18px;
+      border-radius: 14px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 16px;
     }
+    .apple { background: #111; color: #fff; }
+    .google { background: #fff; color: #111; border: 1px solid #ddd; }
   </style>
 </head>
 <body>
-  <main class="box">
-    <h1>Haritada açılıyor…</h1>
-    <p>Otomatik yönlendirme olmazsa aşağıdan harita uygulamasını seçebilirsin.</p>
-    <a href="https://maps.apple/p/pK0cKkKC_kkZ7T">Apple Maps'te Aç</a>
-    <a href="https://www.google.com/maps?q=38.27756881713867,26.828279495239258&z=17&hl=tr">Google Maps'te Aç</a>
+  <main class="card">
+    <h1>Konumu Aç</h1>
+    <p>Hangi uygulama ile açmak istersin?</p>
+    <a class="apple" href="https://maps.apple/p/pK0cKkKC_kkZ7T">Apple Maps ile Aç</a>
+    <a class="google" href="https://www.google.com/maps?q=38.27756881713867,26.828279495239258&z=17&hl=tr">Google Maps ile Aç</a>
   </main>
-
-  <script>
-    (function () {
-      const apple = "https://maps.apple/p/pK0cKkKC_kkZ7T";
-      const google = "https://www.google.com/maps?q=38.27756881713867,26.828279495239258&z=17&hl=tr";
-      const ua = navigator.userAgent || navigator.vendor || window.opera || "";
-      const platform = navigator.platform || "";
-      const isIOS = /iPad|iPhone|iPod/i.test(ua) || (platform === "MacIntel" && navigator.maxTouchPoints > 1);
-      const isMac = /Macintosh|Mac OS X/i.test(ua);
-      const isAndroid = /Android/i.test(ua);
-
-      let target = google;
-      if (isIOS || isMac) target = apple;
-      else if (isAndroid) target = google;
-
-      window.setTimeout(function () {
-        window.location.replace(target);
-      }, 350);
-    })();
-  </script>
 </body>
 </html>
