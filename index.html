@@ -55,8 +55,6 @@
       border: 1px solid rgba(255,255,255,.72);
     }
 
-    h1 { margin: 0 0 20px; font-size: 28px; }
-
     .buttons { display: grid; gap: 11px; }
 
     a {
@@ -84,51 +82,28 @@
       user-select: none;
     }
 
-    .countdown-section {
-      width: min(92vw, 520px);
-      margin: 0 auto 8px;
-      padding: 22px 16px 18px;
-      text-align: center;
-      border-radius: 24px;
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(7px);
-      -webkit-backdrop-filter: blur(7px);
-      box-shadow: 0 18px 50px rgba(0,0,0,.14);
-      border: 1px solid rgba(255,255,255,.72);
+    .compact-countdown {
+      margin: 0 0 16px;
+      gap: 6px;
     }
 
-    .countdown-title {
-      margin: 0 0 14px;
-      font-size: 18px;
-      font-weight: 750;
-      letter-spacing: .1px;
+    .compact-countdown .time-box {
+      padding: 8px 4px 7px;
+      border-radius: 11px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(0,0,0,.07);
     }
 
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .time-box {
-      padding: 13px 6px 10px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(0,0,0,.08);
-    }
-
-    .time-value {
-      display: block;
-      font-size: clamp(24px, 7vw, 34px);
+    .compact-countdown .time-value {
+      font-size: clamp(18px, 5vw, 24px);
       line-height: 1;
       font-weight: 800;
       font-variant-numeric: tabular-nums;
     }
 
-    .time-label {
-      display: block;
-      margin-top: 7px;
-      font-size: 11px;
+    .compact-countdown .time-label {
+      margin-top: 5px;
+      font-size: 9px;
       color: #666;
       font-weight: 650;
     }
@@ -140,25 +115,19 @@
 </head>
 <body>
   <main class="card">
-    <h1>Konumu Aç</h1>
+    <div class="countdown compact-countdown" aria-label="Etkinliğe kalan süre">
+      <div class="time-box"><span class="time-value" id="days">00</span><span class="time-label">GÜN</span></div>
+      <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-label">SAAT</span></div>
+      <div class="time-box"><span class="time-value" id="minutes">00</span><span class="time-label">DAKİKA</span></div>
+      <div class="time-box"><span class="time-value" id="seconds">00</span><span class="time-label">SANİYE</span></div>
+    </div>
     <div class="buttons">
       <a class="apple" href="https://maps.apple/p/pK0cKkKC_kkZ7T">Apple Maps ile Aç</a>
       <a class="google" href="https://www.google.com/maps?q=38.27756881713867,26.828279495239258&amp;z=17&amp;hl=tr">Google Maps ile Aç</a>
     </div>
     <div class="note">Çiğdem &amp; Anıl</div>
   </main>
-
-  <section class="countdown-section" aria-label="Etkinliğe kalan süre">
-    <div class="countdown-title">26 Eylül 2026 • 19:00'a Kalan Süre</div>
-    <div class="countdown">
-      <div class="time-box"><span class="time-value" id="days">00</span><span class="time-label">GÜN</span></div>
-      <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-label">SAAT</span></div>
-      <div class="time-box"><span class="time-value" id="minutes">00</span><span class="time-label">DAKİKA</span></div>
-      <div class="time-box"><span class="time-value" id="seconds">00</span><span class="time-label">SANİYE</span></div>
-    </div>
-  </section>
-
-  <p class="app-question">İyi Yolculuklar!</p>
+<p class="app-question">İyi Yolculuklar!</p>
 
   <script>
     (() => {
@@ -175,7 +144,6 @@
 
         if (diff <= 0) {
           diff = 0;
-          document.querySelector(".countdown-title").textContent = "26 Eylül 2026 • 19:00";
         }
 
         const day = 86400000;
