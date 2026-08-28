@@ -74,16 +74,19 @@
     .google { background: #fff; color: #111; border: 1px solid rgba(0,0,0,.12); }
     .note { margin-top: 14px; font-size: 12px; color: #666; }
 
-    .app-question {
-      position: relative;
-      width: max-content;
-      max-width: calc(100vw - 24px);
-      margin: 22px auto calc(env(safe-area-inset-bottom) + 28px);
+    .journey-message {
+      margin: 0 0 16px;
       text-align: center;
       font-size: 16px;
       line-height: 1.25;
+      font-weight: 700;
       color: rgba(0,0,0,1);
       user-select: none;
+    }
+
+    .bottom-countdown {
+      width: min(90vw, 410px);
+      margin: 18px auto calc(env(safe-area-inset-bottom) + 28px);
     }
 
     .compact-countdown {
@@ -122,19 +125,19 @@
 </head>
 <body>
   <main class="card">
-    <div class="countdown compact-countdown" aria-label="Etkinliğe kalan süre">
-      <div class="time-box"><span class="time-value" id="days">00</span><span class="time-label">GÜN</span></div>
-      <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-label">SAAT</span></div>
-      <div class="time-box"><span class="time-value" id="minutes">00</span><span class="time-label">DAKİKA</span></div>
-      <div class="time-box"><span class="time-value" id="seconds">00</span><span class="time-label">SANİYE</span></div>
-    </div>
+    <p class="journey-message">İyi Yolculuklar!</p>
     <div class="buttons">
       <a class="apple" href="https://maps.apple/p/pK0cKkKC_kkZ7T">Apple Maps ile Aç</a>
       <a class="google" href="https://www.google.com/maps?q=38.27756881713867,26.828279495239258&amp;z=17&amp;hl=tr">Google Maps ile Aç</a>
     </div>
     <div class="note">Çiğdem &amp; Anıl</div>
   </main>
-<p class="app-question">İyi Yolculuklar!</p>
+  <div class="countdown compact-countdown bottom-countdown" aria-label="Etkinliğe kalan süre">
+    <div class="time-box"><span class="time-value" id="days">00</span><span class="time-label">GÜN</span></div>
+    <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-label">SAAT</span></div>
+    <div class="time-box"><span class="time-value" id="minutes">00</span><span class="time-label">DAKİKA</span></div>
+    <div class="time-box"><span class="time-value" id="seconds">00</span><span class="time-label">SANİYE</span></div>
+  </div>
 
   <script>
     (() => {
