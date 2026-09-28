@@ -84,40 +84,6 @@
       user-select: none;
     }
 
-    .bottom-countdown {
-      width: min(90vw, 410px);
-      margin: 18px auto calc(env(safe-area-inset-bottom) + 28px);
-    }
-
-    .compact-countdown {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      width: 100%;
-      margin: 0 0 16px;
-      gap: 6px;
-    }
-
-    .compact-countdown .time-box {
-      padding: 8px 4px 7px;
-      border-radius: 11px;
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(0,0,0,.07);
-    }
-
-    .compact-countdown .time-value {
-      font-size: clamp(18px, 5vw, 24px);
-      line-height: 1;
-      font-weight: 800;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .compact-countdown .time-label {
-      margin-top: 5px;
-      font-size: 9px;
-      color: #666;
-      font-weight: 650;
-    }
-
     @media (max-height: 700px) {
       .card { margin-top: 62vh; }
     }
@@ -125,10 +91,10 @@
 </head>
 <body>
   <main class="card">
-    <p class="journey-message">İyi Yolculuklar!</p>
+    <p class="journey-message">Anılarınızı bizimle paylaşmak ister misiniz?</p>
     <div class="buttons">
-      <a class="apple" href="https://maps.apple/p/pK0cKkKC_kkZ7T">Apple Maps ile Aç</a>
-      <a class="google" href="https://www.google.com/maps?q=38.27756881713867,26.828279495239258&amp;z=17&amp;hl=tr">Google Maps ile Aç</a>
+      <a class="apple" href="https://photos.icloud.com/shared/album/044lZXjZCrFzvFjmOl9O9iGpQ" target="_blank" rel="noopener noreferrer">Apple Albüm</a>
+      <a class="google" href="https://drive.google.com/drive/folders/1EfZueyvUibhU_fvH1zGL9x4JgI6M6BuD?usp=sharing" target="_blank" rel="noopener noreferrer">Google Drive</a>
     </div>
     <div class="note">Çiğdem &amp; Anıl</div>
   </main>
@@ -138,44 +104,5 @@
     <div class="time-box"><span class="time-value" id="minutes">00</span><span class="time-label">DAKİKA</span></div>
     <div class="time-box"><span class="time-value" id="seconds">00</span><span class="time-label">SANİYE</span></div>
   </div>
-
-  <script>
-    (() => {
-      const target = new Date("2026-09-26T18:30:00+03:00").getTime();
-      const els = {
-        days: document.getElementById("days"),
-        hours: document.getElementById("hours"),
-        minutes: document.getElementById("minutes"),
-        seconds: document.getElementById("seconds")
-      };
-
-      function updateCountdown() {
-        let diff = target - Date.now();
-
-        if (diff <= 0) {
-          diff = 0;
-        }
-
-        const day = 86400000;
-        const hour = 3600000;
-        const minute = 60000;
-
-        const days = Math.floor(diff / day);
-        const hours = Math.floor((diff % day) / hour);
-        const minutes = Math.floor((diff % hour) / minute);
-        const seconds = Math.floor((diff % minute) / 1000);
-
-        els.days.textContent = String(days).padStart(2, "0");
-        els.hours.textContent = String(hours).padStart(2, "0");
-        els.minutes.textContent = String(minutes).padStart(2, "0");
-        els.seconds.textContent = String(seconds).padStart(2, "0");
-      }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    })();
-  </script>
-
-  <!-- deploy-refresh: 2026-08-28-2108 -->
 </body>
 </html>
